@@ -6,6 +6,9 @@
 # where tgt can be any of:
 # [all|demos|pdcurses.a|testcurs.exe...]
 
+WIDE = Y
+UTF8 = Y
+
 O = o
 E = .exe
 
@@ -36,7 +39,7 @@ ifeq ($(DEBUG),Y)
 	CFLAGS  = -g -Wall -DPDCDEBUG
 	LDFLAGS = -g
 else
-	CFLAGS  = -O2 -Wall
+	CFLAGS  = -O3 -Wall
 	LDFLAGS =
 endif
 
@@ -60,7 +63,7 @@ ifeq ($(DLL),Y)
 else
 	LIBEXE = $(AR)
 	LIBFLAGS = rcv
-	LIBCURSES = pdcurses.a
+	LIBCURSES = libpdcurses.a
 	CLEAN = *.a
 endif
 
